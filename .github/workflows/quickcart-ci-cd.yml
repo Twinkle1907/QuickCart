@@ -1,0 +1,50 @@
+name: QuickCart CI/CD
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  test:
+    name: Test QuickCart
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Validate project files
+        run: |
+          test -f index.html
+          test -f css/style.css
+          test -f js/script.js
+          echo "All required QuickCart files are present."
+      - name: Start local web server
+        run: |
+          python3 -m http.server 8000 > server.log 2>&1 &
+          SERVER_PID=$!
+          sleep 2
+          curl --fail http://127.0.0.1:8000/index.html
+          kill $SERVER_PID
+          echo "QuickCart website test passed."
+  deploy:
+    name: Deploy QuickCart
+    needs: test
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
