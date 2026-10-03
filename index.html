@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>QuickCart | Online Shopping</title>
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+<body>
+    <!-- ==============================
+         Header
+    =============================== -->
+    <header class="header">
+        <div class="logo">
+            <h1>QuickCart</h1>
+            <p>
+                Simple Shopping, Made Easy
+            </p>
+        </div>
+        <div class="cart-info">
+            🛒 Cart:
+            <span id="cartCount">0</span>
+            <button
+                id="viewCartBtn"
+                class="view-cart-btn"
+            >
+                View Cart
+            </button>
+        </div>
+    </header>
+    <!-- ==============================
+         Main Content
+    =============================== -->
+    <main>
+        <!-- ==============================
+             Welcome Section
+        =============================== -->
+        <section class="welcome">
+            <h2>
+                Welcome to QuickCart 🛒
+            </h2>
+            <p>
+                Find useful products at simple prices.
+            </p>
+        </section>
+        <!-- ==============================
+             Products Section
+        =============================== -->
+        <section class="products-section">
+            <div class="section-heading">
+                <h2>
+                    Our Products
+                </h2>
+                <p>
+                    Browse our collection and choose what you like.
+                </p>
+            </div>
+            <!-- Search and Filter -->
+            <div class="search-filter">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search products..."
+                >
+                <select id="categoryFilter">
+                    <option value="all">
+                        All Categories
+                    </option>
+                    <option value="Electronics">
+                        Electronics
+                    </option>
+                    <option value="Fashion">
+                        Fashion
+                    </option>
+                    <option value="Home">
+                        Home
+                    </option>
+                </select>
+            </div>
+            <!-- Product Cards -->
+            <div
+                id="productContainer"
+                class="product-container"
+            >
+                <!-- Products will be added using JavaScript -->
+            </div>
+        </section>
+        <!-- ==============================
+             Shopping Cart Section
+        =============================== -->
+        <section
+            id="cartSection"
+            class="cart-section"
+        >
+            <div class="cart-header">
+                <h2>
+                    🛒 Shopping Cart
+                </h2>
+                <button
+                    id="closeCartBtn"
+                    class="close-cart-btn"
+                >
+                    Close
+                </button>
+            </div>
+            <div id="cartContainer">
+                <!-- Cart items will appear here -->
+            </div>
+            <!-- Cart Summary -->
+            <div class="cart-summary">
+                <h3>
+                    Total:
+                    ₹<span id="cartTotal">0</span>
+                </h3>
+                <div class="cart-buttons">
+                    <button
+                        id="clearCartBtn"
+                        class="clear-cart-btn"
+                    >
+                        Clear Cart
+                    </button>
+                    <button
+                        id="checkoutBtn"
+                        class="checkout-btn"
+                    >
+                        Proceed to Checkout
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- ==============================
+             Checkout Section
+        =============================== -->
+        <section
+            id="checkoutSection"
+            class="checkout-section"
+        >
+            <div class="checkout-header">
+                <h2>
+                    🧾 Checkout
+                </h2>
+                <button
+                    id="closeCheckoutBtn"
+                    class="close-cart-btn"
+                >
+                    Close
+                </button>
+            </div>
+            <!-- Customer Details -->
+            <div class="checkout-form">
+                <h3>
+                    Customer Details
+                </h3>
+                <label for="customerName">
+                    Full Name
+                </label>
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your full name"
+                >
+                <label for="customerEmail">
+                    Email
+                </label>
+                <input
+                    type="email"
+                    id="customerEmail"
+                    placeholder="Enter your email"
+                >
+                <label for="customerAddress">
+                    Delivery Address
+                </label>
+                <textarea
+                    id="customerAddress"
+                    placeholder="Enter your delivery address"
+                ></textarea>
+            </div>
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h3>
+                    Order Summary
+                </h3>
+                <div id="checkoutItems">
+                    <!-- Checkout items will appear here -->
+                </div>
+                <h3 class="checkout-total">
+                    Total:
+                    ₹<span id="checkoutTotal">0</span>
+                </h3>
+            </div>
+            <!-- Place Order Button -->
+            <button
+                id="placeOrderBtn"
+                class="place-order-btn"
+            >
+                Place Order
+            </button>
+            <!-- Order Confirmation -->
+            <div
+                id="orderConfirmation"
+                class="order-confirmation"
+            >
+                <h2>
+                    🎉 Order Placed Successfully!
+                </h2>
+                <p>
+                    Thank you for shopping with QuickCart.
+                </p>
+                <p>
+                    Your order has been confirmed.
+                </p>
+            </div>
+        </section>
+    </main>
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
